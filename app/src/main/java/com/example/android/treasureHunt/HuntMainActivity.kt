@@ -41,6 +41,7 @@ import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.LocationSettingsRequest
 import com.google.android.material.snackbar.Snackbar
+import java.util.concurrent.TimeUnit
 
 /**
  * The Treasure Hunt app is a single-player game based on geofences.
@@ -288,7 +289,7 @@ class HuntMainActivity : AppCompatActivity() {
                 currentGeofenceData.latLong.longitude,
                 GeofencingConstants.GEOFENCE_RADIUS_IN_METERS
             )
-            .setExpirationDuration(GeofencingConstants.GEOFENCE_EXPIRATION_IN_MILLISECONDS)
+            .setExpirationDuration(TimeUnit.HOURS.toMillis(1))
             .setTransitionTypes(Geofence.GEOFENCE_TRANSITION_ENTER)
             .build()
 
